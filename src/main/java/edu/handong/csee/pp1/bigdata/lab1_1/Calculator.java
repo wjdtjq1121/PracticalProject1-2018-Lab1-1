@@ -32,7 +32,6 @@ public class Calculator {
 	//
 
 	
-	
 	private int localCount = 0;
 
 
