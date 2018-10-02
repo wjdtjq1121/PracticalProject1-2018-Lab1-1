@@ -68,7 +68,8 @@ public class Calculator {
 		print("SUM:" , sum(firstIntArg, secondIntArg));
 		print("SUB:" , this.subtract(firstIntArg, secondIntArg));
 		print("*:" , multiply(firstIntArg, secondIntArg));
-		print("DV:" , divide(firstIntArg,secondIntArg));
+		print_divide("DV:" , divide(firstIntArg,secondIntArg));
+		print("%:" , mod(firstIntArg,secondIntArg));
 	}
 
 	
@@ -80,6 +81,11 @@ public class Calculator {
 	void print(String prefix, int result) {
 		System.out.println(prefix + " " + result);
 	}
+	
+	void print_divide(String prefix, double result) {
+		System.out.println(prefix + " " + result);
+	}
+	
 
 	int sum(int first, int second) {
 		countForAnyCompution++;
@@ -90,7 +96,7 @@ public class Calculator {
 	int subtract(int first, int second) {
 		countForAnyCompution++;
 		localCount++;
-		return first + second;
+		return first - second;
 	}
 
 	int multiply(int first, int second) {
@@ -99,15 +105,23 @@ public class Calculator {
 		return first * second;
 	}
 
-	int divide(int first, int second) {
+	double divide(int first, int second) {
 		countForAnyCompution++;
 		localCount++;
+		
+		if(second == 0 )
+		return Double.NaN;	
+		
 		return first / second;
 	}
 
 	int mod(int first, int second) {
 		// TODO implement the body of this method
-		return 0;
+		countForAnyCompution++;
+		localCount++;
+		
+		
+		return first % second;
 	}
 
 	static int getCount() {
